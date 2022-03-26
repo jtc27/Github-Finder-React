@@ -15,7 +15,7 @@ function App() {
   return (
    <GithubProvider>  {/* Wrap everything so the data in Context can be used */}
     <Router>
-      <div className='flex flex-col justify-between h-screen'>
+      <div className='flex flex-col justify-between h-screen bg-gray-600 text-white'>
         <Navbar />
 
         <main className='container mx-auto px-3 pb-12'>

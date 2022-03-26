@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 function Navbar({title}) {
   return (
-    <nav className='navbar mb-12 shadow-lg bg-neutral text-neutral-content'>
+    <nav className='navbar mb-12 shadow-lg bg-gray-700 text-neutral-content'>
       <div className="container mx-auto">
         <div className="flex-none px-2 mx-2">
           <FaGithub className='inline pr-2 text-5xl'/>
