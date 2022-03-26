@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react"
+import { useContext } from "react"
 import Spinner from "../layout/Spinner"
 import UserItem from "./UserItem"
 
@@ -6,12 +6,8 @@ import GithubContext from "../../context/github/GithubContext"
 
 function UserResults() {
 
-  const {users, loading, fetchUsers} = useContext(GithubContext)
+  const {users, loading} = useContext(GithubContext)
   // take out any value we need from Provider, Global context
-
-  useEffect(() => {
-    fetchUsers()
-  }, [])
 
 
   if (!loading) {
