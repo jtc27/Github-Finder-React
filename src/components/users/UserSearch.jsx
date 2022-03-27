@@ -1,10 +1,14 @@
 import { useState, useContext } from "react"
 import GithubContext from "../../context/github/GithubContext"
+import AlertContext from "../../context/alert/AlertContext"
 
 function UserSearch() {
   const [text, setText] = useState('')
 
   const {users, searchUsers, clearUsers} = useContext(GithubContext)
+  // pulls the values from Context Provider that we want to use in this component
+
+  const {setAlert} = useContext(AlertContext)
   // pulls the values from Context Provider that we want to use in this component
 
   const handleChange = (e) => setText(e.target.value)
@@ -13,7 +17,7 @@ function UserSearch() {
     e.preventDefault()
 
     if (text ==='') {
-      alert('Field is empty')
+      setAlert('Field is empty', 'error')
     } else {
       searchUsers(text)
 
