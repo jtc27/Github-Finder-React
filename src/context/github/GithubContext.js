@@ -40,9 +40,9 @@ export const GithubProvider = ({children}) => {
   const clearUsers = () => 
     dispatch({
       type: 'CLEAR_USERS',
-      payload: []
     })
 
+  //listed values are available to jsx components
   return <GithubContext.Provider value={{
     users: state.users,
     loading: state.loading,
