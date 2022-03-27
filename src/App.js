@@ -9,11 +9,13 @@ import About from './pages/About';
 import NotFound from './pages/NotFound';
 
 import { GithubProvider } from './context/github/GithubContext';
+import { AlertProvider } from './context/alert/AlertContext';
 
 
 function App() {
   return (
    <GithubProvider>  {/* Wrap everything so the data in Context can be used */}
+   <AlertProvider> 
     <Router>
       <div className='flex flex-col justify-between h-screen bg-gray-600 text-white'>
         <Navbar />
@@ -31,6 +33,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+  </AlertProvider> 
   </GithubProvider>
   );
 }

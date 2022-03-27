@@ -42,8 +42,7 @@ export const GithubProvider = ({children}) => {
       type: 'CLEAR_USERS',
     })
 
-  //listed values are available to jsx components
-  return <GithubContext.Provider value={{
+  return <GithubContext.Provider value={{    //listed values are available to jsx components
     users: state.users,
     loading: state.loading,
     searchUsers,
