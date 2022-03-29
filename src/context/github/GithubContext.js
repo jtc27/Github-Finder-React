@@ -8,6 +8,7 @@ const GITHUB_URL = process.env.REACT_APP_GITHUB_URL
 export const GithubProvider = ({children}) => {
   const initialState = {
     users: [],
+    user: {},  //object inside items array
     loading: false
   }
 
@@ -32,6 +33,28 @@ export const GithubProvider = ({children}) => {
     })
   }
 
+  //single user data
+  const getUser = async(login) => {
+    setLoading()  //calls loading spinner
+
+    const response = await fetch(`${GITHUB_URL}/users/${login}`) // Make a request
+
+    if(response.status ===404) { 
+      window.location='/notfound'
+    } else {
+
+      const data = await response.json()
+      //no {items} array, we just need data of single user
+  
+      dispatch({
+        type: 'GET_USER',
+        payload: data 
+      })
+    }
+
+    
+  }
+
   const setLoading = () => 
     dispatch({
       type: 'SET_LOADING'
@@ -44,9 +67,11 @@ export const GithubProvider = ({children}) => {
 
   return <GithubContext.Provider value={{    //listed values are available to jsx components
     users: state.users,
+    user: state.user,
     loading: state.loading,
     searchUsers,
-    clearUsers
+    clearUsers,
+    getUser
   }}>
     {children}
   </GithubContext.Provider>

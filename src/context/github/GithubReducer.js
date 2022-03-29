@@ -9,6 +9,13 @@ const githubReducer = (state, action) => {
         loading: false
       }
 
+    case 'GET_USER': //single user data
+      return {
+        ...state,
+        user: action.payload, //user, not users
+        loading: false
+      }
+
     case 'SET_LOADING':
       return {
         ...state,
