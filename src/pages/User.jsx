@@ -6,17 +6,19 @@ import GithubContext from "../context/github/GithubContext"
 
 import {useParams, Link} from 'react-router-dom' //match not working in react router v.6
 
+import RepoList from '../components/repos/RepoList'
 import Spinner from '../components/layout/Spinner'
 
 function User() {
 
-  const {user, getUser, loading} = useContext(GithubContext)
+  const {user, getUser, repos, getUserRepos, loading} = useContext(GithubContext)
   //getUser function and user.state
 
   const params = useParams()
 
   useEffect(() => {
     getUser(params.login)
+    getUserRepos(params.login)
   }, [])
 
   const {
@@ -164,7 +166,7 @@ function User() {
           </div>
         </div>
 
-      
+        <RepoList repos={repos}/> {/* repos data passed as prop into RepoList.jsx */}
       </div>
   </>
 }

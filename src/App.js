@@ -23,7 +23,7 @@ function App() {
       <div className='flex flex-col justify-between h-screen bg-gray-600 text-white'>
         <Navbar />
 
-        <main className='container mx-auto px-3 pb-12'>
+        <main className='flex flex-col mx-auto px-3 pb-12 bg-gray-600'>
           <Alert/>
         <Routes>
           <Route path='/' element={<Home />} />
